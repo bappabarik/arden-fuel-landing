@@ -3,9 +3,9 @@
 import { FormEvent, useState } from "react";
 import { MailIcon, MapPinIcon, PhoneIcon } from "./icons";
 
-const CONTACT_EMAIL = "info@ardenfuel.com";
-const CONTACT_PHONE_DISPLAY = "+971 XX XXX XXXX";
-const CONTACT_PHONE_HREF = "tel:+971XXXXXXXXX";
+const CONTACT_EMAIL = "sales@ardenfuel.com";
+const CONTACT_PHONE_DISPLAY = "+971589787006";
+const CONTACT_PHONE_HREF = "tel:+971589787006";
 
 type FormState = {
   name: string;
@@ -102,12 +102,12 @@ export function Contact() {
             <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-green-100 text-brand-green-600">
               <MapPinIcon className="h-5 w-5" />
             </span>
-            <div>
+            {/* <div>
               <p className="text-sm font-semibold uppercase tracking-wide text-navy-800/55">Office</p>
               <p className="mt-1 text-base font-semibold text-navy-900">
                 First floor, Zalfa building, Al Garhoud, Dubai
               </p>
-            </div>
+            </div> */}
           </div>
         </div>
 
