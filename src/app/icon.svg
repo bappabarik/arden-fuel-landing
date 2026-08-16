@@ -1,15 +1,126 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
   <defs>
-    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#63b95f" />
-      <stop offset="100%" stop-color="#1f5f24" />
+    <linearGradient id="upperGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#83B53A"/>
+      <stop offset="100%" stop-color="#4E8B30"/>
+    </linearGradient>
+
+    <linearGradient id="leafGreen" x1="85%" y1="0%" x2="5%" y2="100%">
+      <stop offset="0%" stop-color="#0D5B32"/>
+      <stop offset="55%" stop-color="#19713A"/>
+      <stop offset="100%" stop-color="#4F8F31"/>
+    </linearGradient>
+
+    <linearGradient id="sweepGreen" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#0C6A36"/>
+      <stop offset="100%" stop-color="#145A32"/>
+    </linearGradient>
+
+    <linearGradient id="dropGreen" x1="25%" y1="0%" x2="65%" y2="100%">
+      <stop offset="0%" stop-color="#D7DF32"/>
+      <stop offset="35%" stop-color="#A5C83A"/>
+      <stop offset="72%" stop-color="#18713A"/>
+      <stop offset="100%" stop-color="#0B5A32"/>
     </linearGradient>
   </defs>
-  <rect width="200" height="200" rx="40" fill="#0b1f3a" />
-  <path d="M100 40 L62 168" stroke="#ffffff" stroke-width="22" stroke-linecap="round" fill="none" />
-  <path d="M100 40 L138 150" stroke="url(#g)" stroke-width="22" stroke-linecap="round" fill="none" />
-  <path
-    d="M150 140 C161 154 168 166 168 175 C168 186 159 193 149 193 C139 193 130 186 130 175 C130 164 140 152 150 140 Z"
-    fill="url(#g)"
-  />
+
+  <!-- Logo scaled from the original coordinate system into 200x200 -->
+  <g transform="translate(-126.44 -80.46) scale(0.45977)">
+
+    <!-- Main navy mark -->
+    <path
+      d="M545 182
+         L467 183
+         L310 506
+         L368 459
+         L419 425
+         L469 397
+         L515 376
+         L457 376
+         L454 374 Z"
+      fill="#19283F"/>
+
+    <!-- Upper green -->
+    <path
+      d="M547 182
+         L508 263
+         L514 280
+         L553 359
+         L587 349
+         L623 347 Z"
+      fill="url(#upperGreen)"/>
+
+    <!-- Main leaf -->
+    <path
+      d="M636 360
+         L608 358
+         L566 366
+         L530 380
+         L458 418
+         L405 453
+         L359 490
+         L321 528
+         L286 575
+         L377 575
+         L401 536
+         L429 501
+         L498 434
+         L571 383
+         L613 365 Z"
+      fill="url(#leafGreen)"/>
+
+    <!-- Central sweep -->
+    <path
+      d="M618 376
+         L575 394
+         L545 413
+         L508 442
+         L470 479
+         L544 480
+         L557 450
+         L575 421 Z"
+      fill="url(#sweepGreen)"/>
+
+    <!-- Droplet -->
+    <path
+      d="M643 375
+         L606 410
+         L586 435
+         L564 473
+         L558 495
+         L560 524
+         L572 548
+         L592 565
+         L605 571
+         L624 575
+         L637 575
+         L655 571
+         L675 560
+         L692 541
+         L699 526
+         L703 508
+         L701 482
+         L691 454 Z"
+      fill="url(#dropGreen)"/>
+
+    <!-- Droplet highlight -->
+    <path
+      d="M671 452
+         L676 473
+         L676 498
+         L668 521
+         L661 531
+         L643 546
+         L625 552
+         L612 552
+         L632 555
+         L650 551
+         L662 544
+         L676 528
+         L683 510
+         L684 492
+         L681 476 Z"
+      fill="#ffffff"/>
+
+  </g>
 </svg>
