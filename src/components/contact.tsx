@@ -98,19 +98,22 @@ export function Contact() {
             </div>
           </a>
 
-          <div className="flex items-start gap-4 rounded-2xl border border-navy-100 bg-white p-6">
+          {/* <div className="flex items-start gap-4 rounded-2xl border border-navy-100 bg-white p-6">
             <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-green-100 text-brand-green-600">
               <MapPinIcon className="h-5 w-5" />
             </span>
-            {/* <div>
+            <div>
               <p className="text-sm font-semibold uppercase tracking-wide text-navy-800/55">Office</p>
               <p className="mt-1 text-base font-semibold text-navy-900">
                 First floor, Zalfa building, Al Garhoud, Dubai
               </p>
-            </div> */}
-          </div>
+            </div>
+          </div> */}
         </div>
 
+        <h2 className="mt-3 max-w-xl text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">
+          Leave us your enquiry. we will be in touch shortly.
+        </h2>
         <form
           onSubmit={handleSubmit}
           noValidate

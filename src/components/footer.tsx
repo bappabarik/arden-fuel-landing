@@ -30,10 +30,10 @@ export function Footer() {
 
           <div className="flex flex-col items-start gap-1 sm:items-end">
             <a href="mailto:info@ardenfuel.com" className="text-sm font-semibold text-navy-900 hover:text-brand-green-600">
-              info@ardenfuel.com
+              sales@ardenfuel.com
             </a>
-            <a href="tel:+971XXXXXXXXX" className="text-sm font-semibold text-navy-800/75 hover:text-brand-green-600">
-              +971 XX XXX XXXX
+            <a href="tel:+971589787006" className="text-sm font-semibold text-navy-800/75 hover:text-brand-green-600">
+              +971589787006
             </a>
           </div>
         </div>
