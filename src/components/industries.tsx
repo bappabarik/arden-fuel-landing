@@ -1,13 +1,13 @@
 import { BoltIcon, BuildingIcon, CraneIcon, FactoryIcon, HotelIcon, ShipIcon, TruckIcon } from "./icons";
 
 const INDUSTRIES = [
-  { name: "Marine", icon: ShipIcon, description: "Fuel supply for shipping and offshore vessels calling at UAE ports." },
-  { name: "Earth Moving", icon: CraneIcon, description: "Dependable diesel for excavators, loaders and heavy site machinery." },
-  { name: "Power Generation", icon: BoltIcon, description: "Fuel supply keeping generators and backup power running reliably." },
   { name: "Fleet Transport", icon: TruckIcon, description: "Scheduled fleet fueling to keep transport operations moving." },
   { name: "Building & Construction", icon: BuildingIcon, description: "Bulk fuel delivery for construction sites across the Emirates." },
   { name: "Manufacturing", icon: FactoryIcon, description: "Consistent fuel supply for industrial and manufacturing plants." },
   { name: "Hospitality", icon: HotelIcon, description: "Reliable fuel supply for hotel boilers and backup power systems." },
+  { name: "Power Generation", icon: BoltIcon, description: "Fuel supply keeping generators and backup power running reliably." },
+  { name: "Earth Moving", icon: CraneIcon, description: "Dependable diesel for excavators, loaders and heavy site machinery." },
+  { name: "Marine", icon: ShipIcon, description: "Fuel supply for shipping and offshore vessels calling at UAE ports." },
 ];
 
 export function Industries() {

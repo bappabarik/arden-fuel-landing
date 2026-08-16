@@ -4,7 +4,7 @@ import { About } from "@/components/about";
 import { Industries } from "@/components/industries";
 import { Products } from "@/components/products";
 import { Coverage } from "@/components/coverage";
-import { CallToAction } from "@/components/cta";
+import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
 
 export default function Home() {
@@ -17,7 +17,7 @@ export default function Home() {
         <Industries />
         <Products />
         <Coverage />
-        <CallToAction />
+        <Contact />
       </main>
       <Footer />
     </>

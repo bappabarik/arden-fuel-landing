@@ -14,9 +14,9 @@ export function Hero() {
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(99,185,95,0.28),transparent),radial-gradient(ellipse_60%_50%_at_100%_100%,rgba(61,154,65,0.22),transparent)]"
       />
       <div className="relative mx-auto max-w-6xl px-6 pb-20 pt-16 sm:pb-28 sm:pt-24">
-        <p className="text-sm font-semibold uppercase tracking-[0.28em] text-brand-green-300">Arden Fuel Trading</p>
+        {/* <p className="text-sm font-semibold uppercase tracking-[0.28em] text-brand-green-300">Arden Fuel Trading</p> */}
         <h1 className="mt-4 max-w-3xl text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl">
-          Reliable energy solutions for the UAE&apos;s hardest-working industries
+          Delivering Reliable Energy Solutions
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-navy-100/90">
           Arden Fuel delivers dependable petroleum products through trusted sourcing and efficient supply

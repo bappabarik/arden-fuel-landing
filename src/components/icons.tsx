@@ -163,3 +163,20 @@ export function GaugeIcon({ className = base }: IconProps) {
     </svg>
   );
 }
+
+export function MailIcon({ className = base }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} {...shared}>
+      <rect x="3" y="5" width="18" height="14" rx="2.2" />
+      <path d="M3.5 6.5L12 13l8.5-6.5" />
+    </svg>
+  );
+}
+
+export function PhoneIcon({ className = base }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} {...shared}>
+      <path d="M6.6 3.6l2.7 2.7a1.4 1.4 0 0 1-.1 2L7.9 9.6a13.5 13.5 0 0 0 6.5 6.5l1.3-1.3a1.4 1.4 0 0 1 2-.1l2.7 2.7a1.6 1.6 0 0 1 0 2.3l-1.2 1.2a3 3 0 0 1-2.9.8A18.7 18.7 0 0 1 3.7 8.5a3 3 0 0 1 .8-2.9l1.2-1.2a1.6 1.6 0 0 1 2.3 0z" />
+    </svg>
+  );
+}
