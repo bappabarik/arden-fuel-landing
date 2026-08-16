@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette sampled from the Arden Fuel logo. */
+  --color-navy-950: #070f1c;
+  --color-navy-900: #0b1f3a;
+  --color-navy-800: #122a4d;
+  --color-navy-700: #1c3a63;
+  --color-navy-600: #2a4d7d;
+  --color-navy-100: #e7ecf3;
+  --color-navy-50: #f4f6fa;
+
+  --color-brand-green-700: #1f5f24;
+  --color-brand-green-600: #2b7a31;
+  --color-brand-green-500: #3d9a41;
+  --color-brand-green-400: #63b95f;
+  --color-brand-green-300: #92d17f;
+  --color-brand-green-100: #e3f4de;
+
+  --font-sans: var(--font-inter);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-navy-50);
+  color: var(--color-navy-900);
+}
+
+::selection {
+  background: var(--color-brand-green-300);
+  color: var(--color-navy-950);
+}
