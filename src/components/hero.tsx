@@ -1,8 +1,8 @@
 import { GaugeIcon, MapPinIcon, ShieldIcon } from "./icons";
 
 const STATS = [
-  { value: "7", label: "Emirates covered", icon: MapPinIcon },
-  { value: "4", label: "Major ports served", icon: GaugeIcon },
+  { value: "", label: "Trusted Sourcing", icon: MapPinIcon },
+  { value: "", label: "On-Time Delivery", icon: GaugeIcon },
   { value: "24/7", label: "Supply reliability", icon: ShieldIcon },
 ];
 
@@ -43,8 +43,14 @@ export function Hero() {
           {STATS.map(({ value, label, icon: Icon }) => (
             <div key={label}>
               <Icon className="h-6 w-6 text-brand-green-300" />
-              <dd className="mt-3 text-2xl font-bold text-white sm:text-3xl">{value}</dd>
-              <dt className="mt-1 text-xs text-navy-100/70 sm:text-sm">{label}</dt>
+              {value ? (
+                <>
+                  <dd className="mt-3 text-2xl font-bold text-white sm:text-3xl">{value}</dd>
+                  <dt className="mt-1 text-xs text-navy-100/70 sm:text-sm">{label}</dt>
+                </>
+              ) : (
+                <dd className="mt-4 text-base font-bold text-white sm:text-lg">{label}</dd>
+              )}
             </div>
           ))}
         </dl>

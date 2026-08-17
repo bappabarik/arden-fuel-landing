@@ -7,27 +7,33 @@ const CONTACT_EMAIL = "sales@ardenfuel.com";
 const CONTACT_PHONE_DISPLAY = "+971589787006";
 const CONTACT_PHONE_HREF = "tel:+971589787006";
 
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:4000";
+
 type FormState = {
   name: string;
   email: string;
   phone: string;
   message: string;
+  // Honeypot — kept empty and hidden from real visitors via CSS; a filled value marks the submission as spam.
+  company: string;
 };
 
-const INITIAL_STATE: FormState = { name: "", email: "", phone: "", message: "" };
+const INITIAL_STATE: FormState = { name: "", email: "", phone: "", message: "", company: "" };
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+type SubmitStatus = "idle" | "submitting" | "success" | "error";
 
 export function Contact() {
   const [form, setForm] = useState<FormState>(INITIAL_STATE);
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<SubmitStatus>("idle");
 
   function update<K extends keyof FormState>(field: K, value: FormState[K]) {
     setForm((prev) => ({ ...prev, [field]: value }));
   }
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     const nextErrors: Partial<Record<keyof FormState, string>> = {};
@@ -39,19 +45,27 @@ export function Contact() {
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length > 0) return;
 
-    const subject = encodeURIComponent(`Enquiry from ${form.name}`);
-    const bodyLines = [
-      form.message.trim(),
-      "",
-      `Name: ${form.name}`,
-      `Email: ${form.email}`,
-      form.phone.trim() ? `Phone: ${form.phone}` : null,
-    ].filter((line): line is string => line !== null);
-    const body = encodeURIComponent(bodyLines.join("\n"));
+    setStatus("submitting");
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/v1/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name.trim(),
+          email: form.email.trim(),
+          phone: form.phone.trim() || undefined,
+          message: form.message.trim(),
+          company: form.company,
+        }),
+      });
 
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
-    setSent(true);
-    setForm(INITIAL_STATE);
+      if (!res.ok) throw new Error(`Request failed (${res.status})`);
+
+      setStatus("success");
+      setForm(INITIAL_STATE);
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
@@ -123,6 +137,21 @@ export function Contact() {
             aria-hidden
             className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_0%,rgba(99,185,95,0.3),transparent)]"
           />
+
+          {/* Honeypot field — hidden from sighted and screen-reader users, real visitors never fill it. */}
+          <div className="absolute -left-[9999px] top-0" aria-hidden="true">
+            <label htmlFor="contact-company">Company</label>
+            <input
+              id="contact-company"
+              name="company"
+              type="text"
+              tabIndex={-1}
+              autoComplete="off"
+              value={form.company}
+              onChange={(e) => update("company", e.target.value)}
+            />
+          </div>
+
           <div className="relative grid gap-5 sm:grid-cols-2">
             <div className="sm:col-span-1">
               <label htmlFor="contact-name" className="text-sm font-medium text-navy-100/85">
@@ -190,11 +219,19 @@ export function Contact() {
           <div className="relative mt-7 flex flex-wrap items-center gap-4">
             <button
               type="submit"
-              className="rounded-full bg-brand-green-500 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-brand-green-900/20 transition-colors hover:bg-brand-green-400"
+              disabled={status === "submitting"}
+              className="rounded-full bg-brand-green-500 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-brand-green-900/20 transition-colors hover:bg-brand-green-400 disabled:cursor-not-allowed disabled:opacity-60"
             >
-              Send message
+              {status === "submitting" ? "Sending…" : "Send message"}
             </button>
-            {sent && <p className="text-sm text-brand-green-300">Thanks — your email app should now be open to send it.</p>}
+            {status === "success" && (
+              <p className="text-sm text-brand-green-300">Thanks — your message has been sent. We&apos;ll be in touch shortly.</p>
+            )}
+            {status === "error" && (
+              <p className="text-sm text-red-300">
+                Something went wrong sending your message. Please try again or email us at {CONTACT_EMAIL}.
+              </p>
+            )}
           </div>
         </form>
       </div>
